@@ -1,0 +1,326 @@
+# Types
+block: &block
+  background: 0x3A3A3F
+  outline: 0x323233
+  rect: [0, 0, 0, 0]
+
+element: &element
+  background: 0x494951
+  outline: 0x4F4F54
+  rect: [0, 0, 0, 0]
+
+icon: &icon
+  icon-path: ''
+  icon-rect: [0, 0, 0, 0]
+
+sequence: &sequence
+  item-rect: [0, 0, 0, 0]
+  shift: [0, 0]
+
+button: &button
+  rect: [ 0, 0, 0, 0 ]
+
+  background: 0x494951
+  outline: 0x5B5B60
+
+  background-sel: 0x414147
+  outline-sel: 0x5B5B60
+
+  background-hov: 0x494951
+  outline-hov: 0x6B6B70
+
+  icon-path: ''
+  icon-rect: [0, 0, 0, 0]
+
+board: &board
+  background: 0x353538
+  outline: 0x5B5B60
+  grid: 0x5B5B60
+  grid-size: 48
+  rect: [0, 0, 0, 0]
+
+
+# Specific elements
+.app:
+  <<: *element
+  outline: 0x494951
+  rect: [0, 0, 1920, 1080]
+
+.logo:
+  <<: *icon
+  icon-path: core/resources/LogicCalc.png
+  icon-rect: [11, 4, 30, 30]
+
+.toolbar:
+  <<: *block
+  rect: [2, 38, 48, 1040]
+
+.toolbar-panel:
+  <<: *element
+  rect: [4, 53, 44, 504]
+
+.toolbar-panel-buttons:
+  <<: *sequence
+  item-rect: [6, 82, 40, 30]
+  shift: [0, 34]
+
+.toolbar-panel-buttons-and: &toolbar-panel-button
+  <<: *button
+  icon-path: core/resources/gates/AND.png
+  icon-rect: [8, 7, 25, 16]
+  outline: 0x494951
+
+.toolbar-panel-buttons-or:
+  <<: *toolbar-panel-button
+  icon-path: core/resources/gates/OR.png
+
+.toolbar-panel-buttons-xor:
+  <<: *toolbar-panel-button
+  icon-path: core/resources/gates/XOR.png
+
+.toolbar-panel-buttons-nand:
+  <<: *toolbar-panel-button
+  icon-path: core/resources/gates/NAND.png
+
+.toolbar-panel-buttons-nor:
+  <<: *toolbar-panel-button
+  icon-path: core/resources/gates/NOR.png
+
+.toolbar-panel-buttons-nxor:
+  <<: *toolbar-panel-button
+  icon-path: core/resources/gates/NXOR.png
+
+.projectbar:
+  <<: *block
+  rect: [54, 38, 1314, 1040]
+
+.projectbar-tabs:
+  <<: *sequence
+  item-rect: [56, 40, 242, 51]
+  shift: [243, 0]
+
+.projectbar-tabs-tab:
+  <<: *button
+  background: 0x414147
+  outline: 0x4F4F54
+  background-sel: 0x494951
+  outline-sel: 0x4F4F54
+  background-hov: 0x414147
+
+.projectbar-page:
+  <<: *element
+  rect: [56, 76, 1310, 1000]
+
+.projectbar-page-board:
+  <<: *board
+  rect: [62, 82, 1298, 988]
+
+.board-gates:
+  <<: *sequence
+  item-rect: [ 6, 82, 40, 30 ]
+  shift: [80, 20]
+
+.board-gates-and: &board-gate
+  <<: *button
+  icon-path: core/resources/gates/AND.png
+  icon-rect: [ 8, 7, 25, 16 ]
+
+.board-gates-or:
+  <<: *board-gate
+  icon-path: core/resources/gates/OR.png
+
+.board-gates-xor:
+  <<: *board-gate
+  icon-path: core/resources/gates/XOR.png
+
+.board-gates-nand:
+  <<: *board-gate
+  icon-path: core/resources/gates/NAND.png
+
+.board-gates-nor:
+  <<: *board-gate
+  icon-path: core/resources/gates/NOR.png
+
+.board-gates-nxor:
+  <<: *board-gate
+  icon-path: core/resources/gates/NXOR.png
+
+.board-gates-a:
+  <<: *board-gate
+  icon-path: core/resources/gates/A.png
+  fit: height
+
+.board-gates-b:
+  <<: *board-gate
+  icon-path: core/resources/gates/B.png
+  fit: height
+
+.board-gates-c:
+  <<: *board-gate
+  icon-path: core/resources/gates/C.png
+  fit: height
+
+.board-gates-d:
+  <<: *board-gate
+  icon-path: core/resources/gates/D.png
+  fit: height
+
+.board-gates-e:
+  <<: *board-gate
+  icon-path: core/resources/gates/E.png
+  fit: height
+
+.board-gates-f:
+  <<: *board-gate
+  icon-path: core/resources/gates/F.png
+  fit: height
+
+.board-gates-na:
+  <<: *board-gate
+  icon-path: core/resources/gates/NA.png
+  fit: height
+
+.board-gates-nb:
+  <<: *board-gate
+  icon-path: core/resources/gates/NB.png
+  fit: height
+
+.board-gates-nc:
+  <<: *board-gate
+  icon-path: core/resources/gates/NC.png
+  fit: height
+
+.board-gates-nd:
+  <<: *board-gate
+  icon-path: core/resources/gates/ND.png
+  fit: height
+
+.board-gates-ne:
+  <<: *board-gate
+  icon-path: core/resources/gates/NE.png
+  fit: height
+
+.board-gates-nf:
+  <<: *board-gate
+  icon-path: core/resources/gates/F.png
+  fit: height
+
+.board-gates-false:
+  <<: *board-gate
+  icon-path: core/resources/gates/FALSE.png
+  icon-rect: [ 12, 7, 25, 16 ]
+  fit: height
+
+.board-gates-true:
+  <<: *board-gate
+  icon-path: core/resources/gates/TRUE.png
+  icon-rect: [ 12, 7, 25, 16 ]
+  fit: height
+
+.infobar:
+  <<: *block
+  rect: [1372, 38, 546, 1040]
+
+.infobar-tabs:
+  <<: *sequence
+  item-rect: [1374, 40, 142, 51]
+  shift: [143, 0]
+
+.infobar-tabs-expr:
+  <<: *button
+  background: 0x414147
+  outline: 0x4F4F54
+  background-sel: 0x494951
+  outline-sel: 0x4F4F54
+  background-hov: 0x414147
+
+.infobar-page:
+  <<: *element
+  rect: [1374, 76, 542, 1000]
+
+.infobar-page-viewer:
+  <<: *block
+  outline: 0x5B5B60
+  rect: [1380, 82, 530, 300]
+
+.viewer-items:
+  <<: *sequence
+  item-rect: [0, 0, 509, 60]
+  shift: [0, 60]
+
+.viewer-item:
+  <<: *button
+  background: 0x3F3F44
+  outline: 0x3F3F44
+
+  background-sel: 0x414147
+  outline-sel: 0x414147
+
+  background-hov: 0x414147
+  outline-hov: 0x414147
+
+  indent: 30
+
+  rect: [20, 0, 0, 0]
+
+.viewer-expression:
+  background: 0x3F3F44
+  font-color: 0x9B9BA0
+  font-path: core/resources/LibertinusMath-Regular.ttf
+  font-size: 28
+  font-spacing: 4
+  bar: 4
+
+.viewer-sidebar:
+  <<: *element
+  rect: [510, 0, 20, 300]
+  outline: 0x494951
+
+.viewer-sidebar-add:
+  <<: *element
+  rect: [510, 0, 20, 20]
+  background: 0x499C54
+  outline: 0x3D7F43
+
+.infobar-page-tt:
+  <<: *block
+  outline: 0x5B5B60
+  rect: [1381, 482, 530, 588]
+
+.tt-items:
+  <<: *sequence
+  item-rect: [0, 0, 509, 20]
+  shift: [0, 25]
+
+.tt-item: &tt_item
+  <<: *button
+  background: 0x3F3F44
+  outline: 0x3F3F44
+
+  background-sel: 0x414147
+  outline-sel: 0x414147
+
+  background-hov: 0x414147
+  outline-hov: 0x414147
+
+  rect: [40, 0, 40, 0]
+
+.tt-font:
+  font-color: 0x9B9BA0
+  font-path: core/resources/LibertinusMath-Regular.ttf
+  font-size: 22
+
+.tt-false:
+  <<: *tt_item
+  icon-path: core/resources/gates/FALSE.png
+  icon-rect: [-2, 2, 21, 21]
+
+.tt-true:
+  <<: *tt_item
+  icon-path: core/resources/gates/TRUE.png
+  icon-rect: [-2, 2, 21, 21]
+
+.infobar-page-simplify:
+  <<: *button
+  rect: [1730, 407, 161, 51]
+  background: 0x414147
